@@ -181,7 +181,7 @@ public class Aura extends Module {
       if (this.target != null) {
          this.lastTarget = this.target;
          this.rotateExact();
-         if (!this.noAttack.getValue()) {
+         if (!this.noAttack.isFlag()) {
             this.tryAttack();
          }
       } else if (prev != null) {
@@ -306,7 +306,7 @@ public class Aura extends Module {
       if (this.target == null || mc.player == null || mc.interactionManager == null) return;
       if (mc.player.distanceTo(this.target) > this.attackRange.getValueAsFloat()) return;
 
-      if (this.onlySword.getValue()) {
+      if (this.onlySword.isFlag()) {
          Item item = mc.player.getMainHandStack().getItem();
          if (!(item instanceof SwordItem) && !(item instanceof AxeItem)) return;
       }
@@ -317,7 +317,7 @@ public class Aura extends Module {
 
       boolean onlyCrit = this.attackSetting.getList().contains("Only Critical");
       if (onlyCrit) {
-         if (this.smartCrits.getValue() && mc.player.isOnGround() && !mc.options.jumpKey.isPressed()) return;
+         if (this.smartCrits.isFlag() && mc.player.isOnGround() && !mc.options.jumpKey.isPressed()) return;
          if (mc.player.isOnGround() && mc.player.fallDistance < 0.1F) return;
       }
 
