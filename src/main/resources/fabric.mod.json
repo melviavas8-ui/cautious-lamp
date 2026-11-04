@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "id": "daamkydlcrecovered",
+  "version": "1.0.0",
+  "name": "DaamkyDLC Recovered",
+  "environment": "client",
+  "entrypoints": {
+    "preLaunch": [
+      "recovered.fabric.nativebridge.DaamkyDlcPreLaunch"
+    ],
+    "client": [
+      "client.util.ClientEntrypoint"
+    ]
+  },
+  "mixins": [
+    "daamkydlc.profile.mixins.json",
+    "daamkydlc.diagnostic.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.16.10",
+    "minecraft": "=1.21.4",
+    "java": ">=21"
+  }
+}
